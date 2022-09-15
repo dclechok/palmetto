@@ -1,11 +1,17 @@
-import { useState } from 'react';
-import parseCsv from './utils/parseCsv';
+import { useState, useEffect } from 'react';
 
+//utils
+import parseCsv from './utils/parseCsv';
+import runMerge from './utils/runMerge';
+
+//validation
+import validateHeaders from './validation/validateHeaders';
 import validateInputs from './validation/validateInputs';
 
 function Inputs() {
   const [selectedSampleFile, setSelectedSampleFile] = useState();
   const [selectedMasterFile, setSelectedMasterFile] = useState();
+
   const [parsedFiles, setParsedFiles] = useState();
 
   const handleChange = (e) => {
@@ -20,7 +26,10 @@ function Inputs() {
     }
   };
 
-  console.log(parsedFiles)
+  useEffect(() => {
+    if(parsedFiles) validateHeaders(parsedFiles);
+  }, [parsedFiles, setParsedFiles]);
+
   return (
     <div>
     <div className="main-display-container">
@@ -36,7 +45,6 @@ function Inputs() {
       </div>
     </div>
     <div className='merge-button-container'><button onClick={handleClick} >Merge</button></div>
-    <hr className='short-hr'/>
     </div>
   );
 }
