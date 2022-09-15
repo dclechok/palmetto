@@ -14,6 +14,7 @@ function App() {
 
   return (
     <div className="App">
+      <div className="close-app">[X] Close App</div>
       <header>
         <h1>Welcome to Palmetto</h1>
         <h5>CSV Data Parser/Merger</h5>

@@ -71,7 +71,9 @@ input{
 .csv-input::-webkit-file-upload-button:active, button:target{
   background-color: white;
 }
+
 input[type=file] { width: 260px; border: 1px solid rgb(28, 28, 28); }
+
 .merge-button-container{
   display: flex;
   justify-content: center;
@@ -95,4 +97,13 @@ button:hover{
 
 .short-hr{
   width: 90%;
+}
+
+.close-app{
+  display: block;
+  font-size: 12px;
+  position: absolute;
+  z-index: 1;
+  top: 5px;
+  right: 5px;
 }
