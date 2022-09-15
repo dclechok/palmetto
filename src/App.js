@@ -1,4 +1,5 @@
 import "./App.css";
+import Inputs from "./Inputs";
 
 function App() {
   return (
@@ -8,16 +9,7 @@ function App() {
         <h5>CSV Data Parser/Merger</h5>
       </header>
       <hr />
-      <div className="main-display-container">
-        <div className="input-container">
-        <label>New Data</label><br />
-        <input type="file" name="new-csv" accept=".csv" />
-        </div>
-        <div className="input-container">
-        <label>Master File</label><br />
-        <input type="file" name="master-csv" accept=".csv" />
-        </div>
-      </div>
+      <Inputs />
       <h4>[ Log ]</h4>
       <section>
         <p>Hello</p>

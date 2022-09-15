@@ -9,6 +9,7 @@ body {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
+  -webkit-app-region: drag;
   -moz-osx-font-smoothing: grayscale;
 }
 

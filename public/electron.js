@@ -11,7 +11,8 @@ app.on('ready', () => {
         title: 'Palmetto',
         resizable: false,
         autoHideMenuBar: true,
-        // frame: false,
+        frame: false,
+        // titleBarStyle: 'hidden',
         webPreferences: {
             enableRemoteModule: true,
         }
