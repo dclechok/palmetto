@@ -10,7 +10,7 @@ function App() {
       </header>
       <hr />
       <Inputs />
-      <h4>[ Log ]</h4>
+      <h4>[ Merge Log ]</h4>
       <section>
         <p>Hello</p>
       </section>

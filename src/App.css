@@ -28,6 +28,7 @@ h4{
   padding: 0;
   text-align: center;
   color: white;
+  font-weight: 200;
 }
 
 h5{
@@ -58,8 +59,19 @@ input{
   background-color: black;
   margin-top: 14px;
   width: 100%;
+  color: white
 }
 
+.csv-input::-webkit-file-upload-button{
+  background-color: rgb(113, 131, 151);
+  color: rgb(0, 0, 0);
+  -webkit-app-region: no-drag; /* buttons are not useable if drag is enabled on body*/
+}
+
+.csv-input::-webkit-file-upload-button:active, button:target{
+  background-color: white;
+}
+input[type=file] { width: 260px; border: 1px solid rgb(28, 28, 28); }
 .merge-button-container{
   display: flex;
   justify-content: center;
