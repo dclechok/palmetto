@@ -1,24 +1,26 @@
 import { useState } from 'react';
+import parseCsv from './utils/parseCsv';
 
 import validateInputs from './validation/validateInputs';
 
 function Inputs() {
   const [selectedSampleFile, setSelectedSampleFile] = useState();
   const [selectedMasterFile, setSelectedMasterFile] = useState();
+  const [parsedFiles, setParsedFiles] = useState();
 
   const handleChange = (e) => {
     const { id } = e.currentTarget;
     id === 'sample-file' ? setSelectedSampleFile(e.target.files) : setSelectedMasterFile(e.target.files);
   };
 
-  const handleClick = (e) => {
-    //validate there are two files and they are CSV format
-    //validate headers
-    //if headers and inputs are valid - validate 
+  const handleClick = async (e) => {
     e.preventDefault();
-    validateInputs(selectedSampleFile, selectedMasterFile)
+    if(validateInputs(selectedSampleFile, selectedMasterFile)){ //validate two files are selected and they are CSV format
+       setParsedFiles(await parseCsv(selectedSampleFile, selectedMasterFile));
+    }
   };
 
+  console.log(parsedFiles)
   return (
     <div>
     <div className="main-display-container">
@@ -34,6 +36,7 @@ function Inputs() {
       </div>
     </div>
     <div className='merge-button-container'><button onClick={handleClick} >Merge</button></div>
+    <hr className='short-hr'/>
     </div>
   );
 }

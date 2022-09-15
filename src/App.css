@@ -38,7 +38,7 @@ h5{
 
 hr{
   border-width: 1px;
-  border-color: rgb(15, 27, 47)
+  border-color: rgb(49, 74, 118)
 }
 
 section{
@@ -91,4 +91,8 @@ button{
 
 button:hover{
   background-color: rgb(78, 91, 116);
+}
+
+.short-hr{
+  width: 90%;
 }
