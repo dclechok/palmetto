@@ -8,10 +8,9 @@ import runMerge from './utils/runMerge';
 import validateHeaders from './validation/validateHeaders';
 import validateInputs from './validation/validateInputs';
 
-function Inputs() {
+function Inputs({ mergeLog, setMergeLog }) {
   const [selectedSampleFile, setSelectedSampleFile] = useState();
   const [selectedMasterFile, setSelectedMasterFile] = useState();
-
   const [parsedFiles, setParsedFiles] = useState();
 
   const handleChange = (e) => {
@@ -27,7 +26,9 @@ function Inputs() {
   };
 
   useEffect(() => {
-    if(parsedFiles) validateHeaders(parsedFiles);
+    if(parsedFiles){
+      if(validateHeaders(parsedFiles)) setMergeLog(runMerge(parsedFiles));
+    }
   }, [parsedFiles, setParsedFiles]);
 
   return (

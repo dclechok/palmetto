@@ -1,7 +1,17 @@
 import "./App.css";
 import Inputs from "./Inputs";
+import { useState, useEffect } from 'react';
 
 function App() {
+
+  const [mergeLog, setMergeLog] = useState();
+
+  useEffect(() => {
+    if(mergeLog){
+      console.log(mergeLog)
+    }
+  }, [mergeLog, setMergeLog]);
+
   return (
     <div className="App">
       <header>
@@ -9,11 +19,13 @@ function App() {
         <h5>CSV Data Parser/Merger</h5>
       </header>
       <hr />
-      <Inputs />
+      <Inputs mergeLog={mergeLog} setMergeLog={setMergeLog} />
+      {mergeLog && <>
       <h4>[ Merge Log ]</h4>
       <section>
         <p>Hello</p>
       </section>
+      </>}
     </div>
   );
 }
