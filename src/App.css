@@ -45,7 +45,8 @@ section{
   margin: 1% 1% 1% 1%;
   background-color: rgb(11, 14, 25);
   color: white;
-  font-size: 13px;
+  font-size: 12px;
+  text-align: left;
   border-style: solid;
   border-width: 1px;
   border-color: rgb(57, 80, 99);
@@ -133,4 +134,8 @@ button:hover{
   background: none;
   border: none;
   padding: 0;
+}
+
+.merge-recap{
+  text-align: center;
 }
