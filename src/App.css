@@ -42,13 +42,37 @@ hr{
 }
 
 section{
-  margin: 0;
-  padding: 0;
+  margin: 1% 1% 1% 1%;
   background-color: rgb(11, 14, 25);
-  margin-left: 5%;
-  margin-right: 5%;
   color: white;
-  font-size: 14px;
+  font-size: 13px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(57, 80, 99);
+  height: 338px;
+  word-wrap: break-word;
+  overflow-y: auto;
+  overflow-y: none;
+  -webkit-app-region: no-drag; /* buttons are not useable if drag is enabled on body*/
+}
+
+section p{
+  margin: 0;
+  padding: 0 1%;
+  -webkit-app-region: no-drag; /* buttons are not useable if drag is enabled on body*/
+}
+
+section::-webkit-scrollbar{
+  background-color: rgb(0, 0, 0);
+  width: 10px;
+  -webkit-app-region: no-drag; 
+}
+
+section::-webkit-scrollbar-thumb{
+  background-color: rgb(49, 74, 118);
+  width: 8px;
+  border-radius: 4px 4px 4px 4px;
+  -webkit-app-region: no-drag; 
 }
 
 label{
@@ -95,10 +119,6 @@ button:hover{
   background-color: rgb(78, 91, 116);
 }
 
-.short-hr{
-  width: 90%;
-}
-
 .close-app{
   display: block;
   font-size: 12px;
@@ -106,4 +126,10 @@ button:hover{
   z-index: 1;
   top: 5px;
   right: 5px;
+}
+
+.remove-btn-style{
+  background: none;
+  border: none;
+  padding: 0;
 }
