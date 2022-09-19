@@ -1,6 +1,7 @@
 import "./App.css";
 import Inputs from "./Inputs";
 import { useState, useEffect } from 'react';
+import exportCsv from './utils/exportCsv';
 const { ipcRenderer } = window.require('electron');
 
 
@@ -14,6 +15,10 @@ function App() {
   const handleClose = (e) => {
     if(window.confirm('Are you sure you wish to exit?')) ipcRenderer.send('exit-app');
   };
+  
+  const handleDownload = (e) => { //user clicks download button, download Csv of updated/merged sample file
+    if(mergeLog && mergeLog.updatedFile) exportCsv(mergeLog.updatedFile);
+  };
 
   return (
     <div className="App">
@@ -26,9 +31,9 @@ function App() {
       <Inputs mergeLog={mergeLog} setMergeLog={setMergeLog} />
 
       <h4>[ Merge Log ]</h4>
+      {mergeLog && mergeLog.updatedFile && <div className="download-btn-cont"><button className="download-btn" onClick={handleDownload} id="download-btn"><h6>[ Download Merged Sample File ]</h6></button></div>}
       <div className="hide-overflow">
       <section>
-        
         {mergeLog && mergeLog.log &&
         <>
             <p className="merge-recap">{mergeLog.log.filter(logs => logs.mergeSuccess === "Merge Success").length} / {mergeLog.log.length} Entries Merged Successfully</p>

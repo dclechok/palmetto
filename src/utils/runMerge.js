@@ -12,9 +12,8 @@ function runMerge(parsedFiles) {
   const trimmedSampleFile = psf.slice(1, psf.length - 1);
   const trimmedMasterFile = pmf.slice(1, pmf.length - 1);
   // for each sample file entry, search for it in the masterFile array. if match, push details to 'log' array
-  console.log(trimmedSampleFile)
+
   trimmedSampleFile.forEach((sampleFile) => {
-    console.log(sampleFile)
     if (
       trimmedMasterFile.find((masterFile) => sampleFile[0] === masterFile[0])
     ) {
@@ -40,17 +39,9 @@ function runMerge(parsedFiles) {
       });
   });
 
-//   console.log(log, updatedSampleFile);
+  // return updatedSampleFile which is our updated Sample File with Master File entries merged, and log of what occured to render in UI
 
   return { updatedFile: updatedSampleFile, log: log };
 }
 
-function exportCsv(newFile) {}
-
 export default runMerge;
-
-// log[{
-//     line#
-//     serial#
-//     what happened
-// }]
