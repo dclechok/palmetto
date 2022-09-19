@@ -19,13 +19,12 @@ function Inputs({ mergeLog, setMergeLog }) {
   };
 
   const handleClick = async (e) => {
-    console.log('lo')
     if(validateInputs(selectedSampleFile, selectedMasterFile)){ //validate two files are selected and they are CSV format
        setParsedFiles(await parseCsv(selectedSampleFile, selectedMasterFile));
     }
   };
 
-  useEffect(() => {
+  useEffect(() => { //if we've successfully parsed files, validate headers and create merge/merge log
     if(parsedFiles){
       if(validateHeaders(parsedFiles)) setMergeLog(runMerge(parsedFiles));
     }
@@ -35,7 +34,6 @@ function Inputs({ mergeLog, setMergeLog }) {
     setMergeLog();
   }, [selectedSampleFile, selectedMasterFile, setSelectedMasterFile, setSelectedSampleFile]);
 
-  console.log(selectedMasterFile, selectedSampleFile)
   return (
     <div>
     <div className="main-display-container">

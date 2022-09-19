@@ -26,6 +26,7 @@ function App() {
       <Inputs mergeLog={mergeLog} setMergeLog={setMergeLog} />
 
       <h4>[ Merge Log ]</h4>
+      <div className="hide-overflow">
       <section>
         
         {mergeLog && mergeLog.log &&
@@ -33,11 +34,16 @@ function App() {
             <p className="merge-recap">{mergeLog.log.filter(logs => logs.mergeSuccess === "Merge Success").length} / {mergeLog.log.length} Entries Merged Successfully</p>
             <p className="merge-recap">---</p>
             {mergeLog.log.map((log, key) => {
-              return <p key={key}><span style={{color: colorCode[log.mergeSuccess]}}>{log.mergeSuccess}</span> ({log.serial}): Master File (Index: {log.masterMatchIndex}) --> Sample File (Index: {log.sampleMatchIndex}) </p>
+              return <p key={key}>
+                <span style={{color: colorCode[log.mergeSuccess]}}>{log.mergeSuccess}</span> 
+                ({log.serial}): {log.mergeSuccess === "Merge Success" ? `Master File (Index: ${log.masterMatchIndex}) --> Sample File (Index: ${log.sampleMatchIndex})` : 
+                `Sample File (Index: ${log.sampleMatchIndex}) --> No matches found in Master!`}
+                </p>
             })}
         </>
       }
       </section>
+      </div>
     </div>
   );
 }

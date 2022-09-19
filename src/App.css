@@ -42,7 +42,7 @@ hr{
 }
 
 section{
-  margin: 1% 1% 1% 1%;
+  margin: 1%;
   background-color: rgb(11, 14, 25);
   color: white;
   font-size: 12px;
@@ -55,6 +55,11 @@ section{
   overflow-y: auto;
   overflow-y: none;
   -webkit-app-region: no-drag; /* buttons are not useable if drag is enabled on body*/
+  scroll-behavior: smooth;
+}
+
+.hide-overflow{
+  overflow: visible;
 }
 
 section p{

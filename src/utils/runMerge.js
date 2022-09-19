@@ -11,27 +11,18 @@ function runMerge(parsedFiles) {
   //trim headers off, and last entry is empty in papa parse
   const trimmedSampleFile = psf.slice(1, psf.length - 1);
   const trimmedMasterFile = pmf.slice(1, pmf.length - 1);
-  //   console.log(trimmedSampleFile, trimmedMasterFile);
-  //find if serial number from sample file exists in master file
-
-  //   trimmedSampleFile.forEach(sampleFile => {
-  //     trimmedMasterFile.find(masterFile => {
-  //         if(sampleFile[0] === masterFile[0]){
-  //             log.push({ mergeSuccess: 'Merge Success', serial: 'sn', sampleMatchIndex: 'sampleMatchIdx', masterMatchIndex: 'masterMatchIdx', details: 'detail'});
-  //             updatedSampleFile.push(masterFile);
-  //         }else
-  //             log.push({ mergeSuccess: 'Merge Fail', serial: 'sn', sampleMatchIndex: 'sampleMatchIdx', masterMatchIndex: 'masterMatchIdx',  details: 'detail'});
-  //     })});
-
+  // for each sample file entry, search for it in the masterFile array. if match, push details to 'log' array
+  console.log(trimmedSampleFile)
   trimmedSampleFile.forEach((sampleFile) => {
+    console.log(sampleFile)
     if (
       trimmedMasterFile.find((masterFile) => sampleFile[0] === masterFile[0])
     ) {
       log.push({
         mergeSuccess: "Merge Success",
         serial: sampleFile[1],
-        sampleMatchIndex: "sampleMatchIdx",
-        masterMatchIndex: "masterMatchIdx",
+        sampleMatchIndex: trimmedSampleFile.indexOf(sampleFile) + 2,
+        masterMatchIndex: trimmedMasterFile.indexOf(trimmedMasterFile.find((masterFile) => sampleFile[0] === masterFile[0])) + 2,
         details: "detail",
       });
       updatedSampleFile.push(
@@ -43,13 +34,13 @@ function runMerge(parsedFiles) {
       log.push({
         mergeSuccess: "No Match",
         serial: sampleFile[1],
-        sampleMatchIndex: "sampleMatchIdx",
-        masterMatchIndex: "masterMatchIdx",
+        sampleMatchIndex: trimmedSampleFile.indexOf(sampleFile) + 2,
+        masterMatchIndex: "",
         details: "detail",
       });
   });
 
-  console.log(log, updatedSampleFile);
+//   console.log(log, updatedSampleFile);
 
   return { updatedFile: updatedSampleFile, log: log };
 }

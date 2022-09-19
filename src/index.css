@@ -3,6 +3,7 @@
 html{
   background-color: rgb(19, 24, 34);
   color: rgb(140, 156, 186);
+  -webkit-app-region: drag;
 }
 
 body {
