@@ -21,7 +21,12 @@ function runMerge(parsedFiles) {
         mergeSuccess: "Merge Success",
         serial: sampleFile[1],
         sampleMatchIndex: trimmedSampleFile.indexOf(sampleFile) + 2,
-        masterMatchIndex: trimmedMasterFile.indexOf(trimmedMasterFile.find((masterFile) => sampleFile[0] === masterFile[0])) + 2,
+        masterMatchIndex:
+          trimmedMasterFile.indexOf(
+            trimmedMasterFile.find(
+              (masterFile) => sampleFile[0] === masterFile[0]
+            )
+          ) + 2,
         details: "detail",
       });
       updatedSampleFile.push(
@@ -29,7 +34,7 @@ function runMerge(parsedFiles) {
           (masterFile) => sampleFile[0] === masterFile[0]
         )
       );
-    } else
+    } else {
       log.push({
         mergeSuccess: "No Match",
         serial: sampleFile[1],
@@ -37,6 +42,9 @@ function runMerge(parsedFiles) {
         masterMatchIndex: "",
         details: "detail",
       });
+      console.log(sampleFile, updatedSampleFile)
+      updatedSampleFile.push([sampleFile]);
+    }
   });
 
   // return updatedSampleFile which is our updated Sample File with Master File entries merged, and log of what occured to render in UI
