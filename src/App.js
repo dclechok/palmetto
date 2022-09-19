@@ -40,7 +40,7 @@ function App() {
             <p className="merge-recap">---</p>
             {mergeLog.log.map((log, key) => {
               return <p key={key}>
-                <span style={{color: colorCode[log.mergeSuccess]}}>{log.mergeSuccess}</span> 
+                <span style={{color: colorCode[log.mergeSuccess]}}>{log.mergeSuccess}&nbsp;</span> 
                 ({log.serial}): {log.mergeSuccess === "Merge Success" ? `Master File (Index: ${log.masterMatchIndex}) --> Sample File (Index: ${log.sampleMatchIndex})` : 
                 `Sample File (Index: ${log.sampleMatchIndex}) --> No matches found in Master!`}
                 </p>

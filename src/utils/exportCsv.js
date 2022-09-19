@@ -4,6 +4,7 @@ import dateFormatter from "./dateFormatter";
 const fileDownload = require("js-file-download");
 
 function exportCsv(mergedFile) {
+    console.log(mergedFile)
   const csv = Papa.unparse({
     fields: [
       //headers
