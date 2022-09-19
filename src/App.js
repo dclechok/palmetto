@@ -22,6 +22,7 @@ function App() {
 
   return (
     <div className="App">
+      <h5>v 1.0.0</h5>
       <button className="close-app remove-btn-style" onClick={handleClose}>[X] Close App</button>
       <header>
         <h1>Welcome to Palmetto</h1>
