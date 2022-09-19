@@ -4,7 +4,6 @@ import dateFormatter from "./dateFormatter";
 const fileDownload = require("js-file-download");
 
 function exportCsv(mergedFile) {
-  console.log(mergedFile);
   const csv = Papa.unparse({
     fields: [
       //headers
@@ -15,17 +14,16 @@ function exportCsv(mergedFile) {
       "Model",
       "Hash Rate",
     ],
-    data: mergedFile.map((asset) => {
-      return [
-        asset[0] || "", // ex. "PA01-XXX-XXXX-XXX"
-        asset[1] || "", // serial number
-        asset[2] || "", // asset tag
-        asset[3] || "", // MAKE
-        asset[4] || "", //model
-        asset[5] || "", //hashrate
-        asset[6] || "", // hash rate
-      ];
-    }),
+    data: mergedFile.map((asset) =>
+      [
+        asset[0][0] || "", // ex. "PA01-XXX-XXXX-XXX"
+        asset[0][1] || "", // serial number
+        asset[0][2] || "", // asset tag
+        asset[0][3] || "", // MAKE
+        asset[0][4] || "", //model
+        asset[0][5] || "", //hashrate
+      ]
+    ),
   });
 
   const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });

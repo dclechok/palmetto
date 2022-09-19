@@ -19,6 +19,7 @@ function Inputs({ mergeLog, setMergeLog }) {
   };
 
   const handleClick = async (e) => {
+    console.log(e.currentTarget)
     if(validateInputs(selectedSampleFile, selectedMasterFile)){ //validate two files are selected and they are CSV format
        setParsedFiles(await parseCsv(selectedSampleFile, selectedMasterFile));
     }
