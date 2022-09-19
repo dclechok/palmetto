@@ -153,6 +153,18 @@ button:hover{
   color: rgb(140, 156, 186);
 }
 
+.version-date{
+  display: block;
+  padding: 0;
+  margin: 0;
+  font-size: 12px;
+  position: absolute;
+  z-index: 1;
+  top: 5px;
+  left: 5px;
+  color: rgb(140, 156, 186);
+}
+
 .remove-btn-style{
   background: none;
   border: none;

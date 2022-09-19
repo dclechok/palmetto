@@ -1,11 +1,12 @@
 import "./App.css";
 import Inputs from "./Inputs";
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import exportCsv from './utils/exportCsv';
+import dateFormatter from "./utils/dateFormatter";
 const { ipcRenderer } = window.require('electron');
 
-
 function App() {
+  const newDate = new Date();
   const colorCode = {
     'Merge Success': 'rgb(83, 173, 193)', 
     'No Match': 'rgb(224, 156, 83)'
@@ -22,7 +23,7 @@ function App() {
 
   return (
     <div className="App">
-      <h5>v 1.0.0</h5>
+      <p className="version-date">v 1.0.0 - Last Updated: {dateFormatter(newDate)}</p>
       <button className="close-app remove-btn-style" onClick={handleClose}>[X] Close App</button>
       <header>
         <h1>Welcome to Palmetto</h1>
