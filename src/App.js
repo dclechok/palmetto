@@ -20,14 +20,11 @@ function App() {
   ipcRenderer.on('update_available', () => {
     ipcRenderer.removeAllListeners('update_available');
     setUpdateMessage('A new update is available. Downloading now...');
-    notification.classList.remove('hidden');
   });
 
   ipcRenderer.on('update_downloaded', () => {
     ipcRenderer.removeAllListeners('update_downloaded');
     setUpdateMessage('Update Downloaded. It will be installed on restart. Restart now?');
-    restartButton.classList.remove('hidden');
-    notification.classList.remove('hidden');
   });
 
   const newDate = new Date();
@@ -46,7 +43,7 @@ function App() {
   };
 
   function closeNotification() {
-    notification.classList.add('hidden');
+    setUpdateMessage();
   }
 
   function restartApp() {
@@ -84,12 +81,12 @@ function App() {
       </section>
       </div>
       {updateMessage && 
-          <div id="notification" class="hidden">
+          <div id="notification">
           <p id="message"></p>
           <button id="close-button" onClick={closeNotification}>
             Close
           </button>
-          <button id="restart-button" onClick={restartApp} class="hidden">
+          <button id="restart-button" onClick={restartApp}>
             Restart
           </button>
         </div>

@@ -12,6 +12,7 @@
 /build
 /dist
 /electron-builder.yml
+.env
 
 # misc
 .DS_Store
