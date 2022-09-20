@@ -1,15 +1,25 @@
 {
   "name": "palmetto",
-  "version": "0.1.0",
+  "appId": "com.palmetto.app",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dclechok/palmetto.git"
+  },
   "private": true,
-  "main": "public/main.js",
+  "main": "public/electron.js",
+  "homepage": "./",
+  "author": "Daniel C. Lechok",
+  "description": "A desktop application, built with React and Electron frameworks, that allows a user to parse and merge a Sample File and Masterfile.",
   "dependencies": {
     "@electron/remote": "^2.0.8",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "dotenv": "^16.0.2",
+    "electron-updater": "^5.2.1",
     "js-file-download": "^0.4.12",
+    "node": "^18.9.0",
     "papaparse": "^5.3.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -22,7 +32,10 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "dev": "concurrently -k \"npm start\" \"npm:electron\"",
-    "electron": "wait-on tcp:3000 && electron ."
+    "electron": "wait-on tcp:3000 && electron .",
+    "electron:package:mac": "yarn build && electron-builder -m -c.extraMetadata.main=build/main.js",
+    "electron:package:win": "electron-builder -w -c.extraMetadata.main=build/main.js",
+    "electron:package:linux": "yarn build && electron-builder -l -c.extraMetadata.main=build/main.js"
   },
   "eslintConfig": {
     "extends": [
@@ -45,6 +58,21 @@
   "devDependencies": {
     "concurrently": "^7.4.0",
     "electron": "^20.1.4",
+    "electron-builder": "^23.3.3",
+    "electron-packager": "^16.0.0",
     "wait-on": "^6.0.1"
+  },
+  "build": {
+    "productName": "Palmetto",
+    "appId": "com.palmetto.app",
+    "win": {
+      "icon": "./build/icons/icon.png",
+      "target": [
+        "portable"
+      ]
+    },
+    "portable": {
+      "artifactName": "Palmetto.exe"
+    }
   }
 }

@@ -1,6 +1,7 @@
 function validateHeaders(parsedFiles) {
   //validate headers for sample file
   // "Location" "Serial #" "Asset #" "Make" "Model" "Hashrate"
+  console.log(parsedFiles)
   for (let file in parsedFiles) {
     if (
       parsedFiles[file][0][0].toLowerCase() !== "location" ||

@@ -1,7 +1,3 @@
-import Papa from "papaparse";
-//once files have both been validated, search if sample file has entry that matches one in master file
-//if so populate sample file with those details
-
 // 1) merge the two files into the one sample file where criteria is found/pulled from master file
 // 2) build a log of each item in sample file
 function runMerge(parsedFiles) {

@@ -28,11 +28,11 @@ function Inputs({ mergeLog, setMergeLog }) {
     if(parsedFiles){
       if(validateHeaders(parsedFiles)) setMergeLog(runMerge(parsedFiles));
     }
-  }, [parsedFiles, setParsedFiles]);
+  }, [parsedFiles, setParsedFiles, setMergeLog]);
 
   useEffect(() => {
     setMergeLog();
-  }, [selectedSampleFile, selectedMasterFile, setSelectedMasterFile, setSelectedSampleFile]);
+  }, [selectedSampleFile, selectedMasterFile, setSelectedMasterFile, setSelectedSampleFile, setMergeLog]);
 
   return (
     <div>

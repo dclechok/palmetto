@@ -6,6 +6,30 @@ import dateFormatter from "./utils/dateFormatter";
 const { ipcRenderer } = window.require('electron');
 
 function App() {
+
+  //get version info from Electron main process
+  let version;
+  ipcRenderer.send('app_version');
+  ipcRenderer.on('app_version', (event, arg) => {
+    ipcRenderer.removeAllListeners('app_version');
+    version = arg.version;
+  });
+  
+  //handle auto-updates
+  const [updateMessage, setUpdateMessage] = useState();
+  ipcRenderer.on('update_available', () => {
+    ipcRenderer.removeAllListeners('update_available');
+    setUpdateMessage('A new update is available. Downloading now...');
+    notification.classList.remove('hidden');
+  });
+
+  ipcRenderer.on('update_downloaded', () => {
+    ipcRenderer.removeAllListeners('update_downloaded');
+    setUpdateMessage('Update Downloaded. It will be installed on restart. Restart now?');
+    restartButton.classList.remove('hidden');
+    notification.classList.remove('hidden');
+  });
+
   const newDate = new Date();
   const colorCode = {
     'Merge Success': 'rgb(83, 173, 193)', 
@@ -21,9 +45,17 @@ function App() {
     if(mergeLog && mergeLog.updatedFile) exportCsv(mergeLog.updatedFile);
   };
 
+  function closeNotification() {
+    notification.classList.add('hidden');
+  }
+
+  function restartApp() {
+    ipcRenderer.send('restart_app');
+  }
+
   return (
     <div className="App">
-      <p className="version-date">v 1.0.0 - Last Updated: {dateFormatter(newDate)}</p>
+      <p className="version-date">v{version} - Last Updated: {dateFormatter(newDate)}</p>
       <button className="close-app remove-btn-style" onClick={handleClose}>[X] Close App</button>
       <header>
         <h1>Welcome to Palmetto</h1>
@@ -51,6 +83,17 @@ function App() {
       }
       </section>
       </div>
+      {updateMessage && 
+          <div id="notification" class="hidden">
+          <p id="message"></p>
+          <button id="close-button" onClick={closeNotification}>
+            Close
+          </button>
+          <button id="restart-button" onClick={restartApp} class="hidden">
+            Restart
+          </button>
+        </div>
+      }
     </div>
   );
 }
