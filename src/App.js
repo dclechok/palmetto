@@ -49,7 +49,7 @@ function App() {
   function restartApp() {
     ipcRenderer.send('restart_app');
   }
-
+  console.log(updateMessage)
   return (
     <div className="App">
       <p className="version-date">v{version} - Last Updated: {dateFormatter(newDate)}</p>
