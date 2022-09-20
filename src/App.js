@@ -50,7 +50,7 @@ function App() {
   
   return (
     <div className="App">
-      <p className="version-date">v1.0.1 - Last Updated: 09/20/2022</p>
+      <p className="version-date">v1.0.0 - Last Updated: 09/20/2022</p>
       <button className="close-app remove-btn-style" onClick={handleClose}>[X] Close App</button>
       <header>
         <h1>Welcome to Palmetto</h1>
@@ -77,6 +77,7 @@ function App() {
         </>
       }
       </section>
+      <footer className="footer">Powered by Mawson Infrastructure Group © 2022 </footer>
       </div>
       {/* {updateMessage && 
           <div id="notification">

@@ -10,7 +10,7 @@
   "main": "public/electron.js",
   "homepage": "./",
   "author": "Daniel C. Lechok",
-  "description": "A desktop application, built with React and Electron frameworks, that allows a user to parse and merge a Sample File and Masterfile.",
+  "description": "Parse and Merge CSV Files",
   "dependencies": {
     "@electron/remote": "^2.0.8",
     "@testing-library/jest-dom": "^5.16.5",
