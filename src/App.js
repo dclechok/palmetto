@@ -2,32 +2,30 @@ import "./App.css";
 import Inputs from "./Inputs";
 import { useState } from 'react';
 import exportCsv from './utils/exportCsv';
-import dateFormatter from "./utils/dateFormatter";
 const { ipcRenderer } = window.require('electron');
 
 function App() {
 
   //get version info from Electron main process
-  let version;
-  ipcRenderer.send('app_version');
-  ipcRenderer.on('app_version', (event, arg) => {
-    ipcRenderer.removeAllListeners('app_version');
-    version = arg.version;
-  });
+  // let version;
+  // ipcRenderer.send('app_version');
+  // ipcRenderer.on('app_version', (event, arg) => {
+  //   ipcRenderer.removeAllListeners('app_version');
+  //   version = arg.version;
+  // });
   
   //handle auto-updates
-  const [updateMessage, setUpdateMessage] = useState();
-  ipcRenderer.on('update_available', () => {
-    ipcRenderer.removeAllListeners('update_available');
-    setUpdateMessage('A new update is available. Downloading now...');
-  });
+  // const [updateMessage, setUpdateMessage] = useState();
+  // ipcRenderer.on('update_available', () => {
+  //   ipcRenderer.removeAllListeners('update_available');
+  //   setUpdateMessage('A new update is available. Downloading now...');
+  // });
 
-  ipcRenderer.on('update_downloaded', () => {
-    ipcRenderer.removeAllListeners('update_downloaded');
-    setUpdateMessage('Update Downloaded. It will be installed on restart. Restart now?');
-  });
+  // ipcRenderer.on('update_downloaded', () => {
+  //   ipcRenderer.removeAllListeners('update_downloaded');
+  //   setUpdateMessage('Update Downloaded. It will be installed on restart. Restart now?');
+  // });
 
-  const newDate = new Date();
   const colorCode = {
     'Merge Success': 'rgb(83, 173, 193)', 
     'No Match': 'rgb(224, 156, 83)'
@@ -42,17 +40,17 @@ function App() {
     if(mergeLog && mergeLog.updatedFile) exportCsv(mergeLog.updatedFile);
   };
 
-  function closeNotification() {
-    setUpdateMessage();
-  }
-
-  function restartApp() {
-    ipcRenderer.send('restart_app');
-  }
-  console.log(updateMessage)
+  // function closeNotification() {
+  //   setUpdateMessage();
+  // }
+  // function restartApp() {
+  //   ipcRenderer.send('restart_app');
+  // }
+  // console.log(updateMessage, 'test')
+  
   return (
     <div className="App">
-      <p className="version-date">v{version} - Last Updated: {dateFormatter(newDate)}</p>
+      <p className="version-date">v1.0.1 - Last Updated: 09/20/2022</p>
       <button className="close-app remove-btn-style" onClick={handleClose}>[X] Close App</button>
       <header>
         <h1>Welcome to Palmetto</h1>
@@ -80,7 +78,7 @@ function App() {
       }
       </section>
       </div>
-      {updateMessage && 
+      {/* {updateMessage && 
           <div id="notification">
           <p id="message"></p>
           <button id="close-button" onClick={closeNotification}>
@@ -90,7 +88,7 @@ function App() {
             Restart
           </button>
         </div>
-      }
+      } */}
     </div>
   );
 }
