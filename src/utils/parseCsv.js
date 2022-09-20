@@ -26,8 +26,10 @@ async function parseCsv(sampleFile, masterFile) {
       reject("Error parsing master file!");
     }
   });
+  //ignore first column of master file "site" will not be used
+  const trimFirstCol = parsedMasterFile.map(item => item.slice(1, 7));
 
-  return { psf: parsedSampleFile, pmf: parsedMasterFile };
+  return { psf: parsedSampleFile, pmf: trimFirstCol };
 }
 
 export default parseCsv;

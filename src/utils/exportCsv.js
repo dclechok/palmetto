@@ -4,16 +4,15 @@ import dateFormatter from "./dateFormatter";
 const fileDownload = require("js-file-download");
 
 function exportCsv(mergedFile) {
-    console.log(mergedFile)
   const csv = Papa.unparse({
     fields: [
       //headers
       "Location",
-      "Serial Number",
-      "Asset Tag",
+      "Serial #",
+      "Asset #",
       "Make",
       "Model",
-      "Hash Rate",
+      "Hashrate",
     ],
     data: mergedFile.map((asset) =>
       [
