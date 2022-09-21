@@ -10,6 +10,8 @@
       scripts:
         - name: Injecting env vars
           script: echo "REACT_APP_API_KEY=$REACT_APP_API_KEY" >> .env
+        - name: Inject GH_token
+          script: GH_TOKEN=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
         - name: Installing packages
           script: yarn install
         - name: Building Applications - React
