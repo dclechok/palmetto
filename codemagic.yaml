@@ -12,10 +12,8 @@
           script: echo "REACT_APP_API_KEY=$REACT_APP_API_KEY" >> .env
         - name: Installing packages
           script: yarn install
-        - name: Inject GH_token
-          script: GH_TOKEN=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
         - name: Building Applications - React
-          script: yarn build
+          script: GH_TOKEN=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 yarn build
         - name: Building Application - Electron
           script: yarn electron-builder -m -c.extraMetadata.main=build/electron.js
 
