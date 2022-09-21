@@ -15,7 +15,7 @@
         - name: Building Applications - React
           script: yarn build
         - name: Building Application - Electron
-          script: yarn electron-builder -m --publish=never -c.extraMetadata.main=build/electron.js 
+          script: yarn electron-builder -m -c.extraMetadata.main=build/electron.js 
 
       artifacts:
         - out/make/*.dmg
