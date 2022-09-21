@@ -54,7 +54,7 @@ function Inputs({ mergeLog, setMergeLog }) {
     <div>
     <div className="main-display-container">
       <div className="input-container">
-        <label htmlFor='sample-file'>Sample File</label>
+        <label htmlFor='sample-file'>Serial # File</label>
         <br />
         <input className="csv-input" type="file" name="new-csv" id="sample-file" accept=".csv" onChange={handleChange} />
       </div>

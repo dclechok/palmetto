@@ -3,7 +3,7 @@ import Inputs from "./Inputs";
 import { useState } from 'react';
 import exportCsv from './utils/exportCsv';
 const { ipcRenderer } = window.require('electron');
-
+const { version } = require('../package.json');
 function App() {
 
   //get version info from Electron main process
@@ -54,7 +54,7 @@ function App() {
   
   return (
     <div className="App">
-      <p className="version-date">v1.0.0 - Last Updated: 09/21/2022</p>
+      <p className="version-date">v{version} - Last Updated: 09/21/2022</p>
       <div className="close-button-container">
       <button className="remove-btn-style" onClick={handleMin} id="min">[▼]</button>&nbsp;
       <button className="remove-btn-style" onClick={handleClose} id="close">[X]</button>
