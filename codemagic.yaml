@@ -1,7 +1,7 @@
   workflows: 
     macos-build:
       name: macOS Build
-      instance_type: mac_mini
+      instance_type: mac_pro
       environment:
         groups:
           - prod 
@@ -15,7 +15,7 @@
         - name: Building Applications - React
           script: yarn build
         - name: Building Application - Electron
-          script: electron-builder -m -c.extraMetadata.main=build/electron.js
+          script: yarn electron-builder -m -c.extraMetadata.main=build/electron.js
 
       artifacts:
         - out/make/*.dmg
