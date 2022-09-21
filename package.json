@@ -72,7 +72,7 @@
       "target": ["portable"]
     },
     "mac": {
-      "artifactName": "Palmetto.exe",
+      "artifactName": "Palmetto",
       "icon": "./buildResources/icons/icon.png",
       "target": "dmg"
     }
