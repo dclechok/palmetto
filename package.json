@@ -67,13 +67,14 @@
     "productName": "Palmetto",
     "appId": "com.palmetto.app",
     "win": {
+      "artifactName": "Palmetto.exe",
       "icon": "./buildResources/icons/icon.png",
-      "target": [
-        "portable"
-      ]
+      "target": ["portable"]
     },
-    "portable": {
-      "artifactName": "Palmetto.exe"
+    "mac": {
+      "artifactName": "Palmetto.exe",
+      "icon": "./buildResources/icons/icon.png",
+      "target": "dmg"
     }
   }
 }
