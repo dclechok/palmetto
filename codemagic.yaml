@@ -13,9 +13,9 @@
         - name: Installing packages
           script: yarn install
         - name: Building Applications - React
-          script: GH_TOKEN=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 yarn build
+          script: yarn build
         - name: Building Application - Electron
-          script: yarn electron-builder -m -c.extraMetadata.main=build/electron.js
+          script: yarn electron-builder -m --publish=never -c.extraMetadata.main=build/electron.js 
 
       artifacts:
         - out/make/*.dmg
