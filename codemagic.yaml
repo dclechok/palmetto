@@ -13,7 +13,7 @@
         - name: Installing packages
           script: yarn install
         - name: Inject GH_token
-          script: GH_TOKEN=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
+          script: SET GH_TOKEN=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
         - name: Building Applications - React
           script: yarn build
         - name: Building Application - Electron
