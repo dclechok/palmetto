@@ -40,6 +40,10 @@ function App() {
     if(mergeLog && mergeLog.updatedFile) exportCsv(mergeLog.updatedFile);
   };
 
+  const handleMin = (e) => {
+    const { id } = e.currentTarget;
+    if(id === "min") ipcRenderer.send('minimize');
+  };
   // function closeNotification() {
   //   setUpdateMessage();
   // }
@@ -50,8 +54,11 @@ function App() {
   
   return (
     <div className="App">
-      <p className="version-date">v1.0.0 - Last Updated: 09/20/2022</p>
-      <button className="close-app remove-btn-style" onClick={handleClose}>[X] Close App</button>
+      <p className="version-date">v1.0.0 - Last Updated: 09/21/2022</p>
+      <div className="close-button-container">
+      <button className="remove-btn-style" onClick={handleMin} id="min">[▼]</button>&nbsp;
+      <button className="remove-btn-style" onClick={handleClose} id="close">[X]</button>
+      </div>
       <header>
         <h1>Welcome to Palmetto</h1>
         <h5>CSV Data Parser/Merger</h5>
