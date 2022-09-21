@@ -12,8 +12,10 @@
           script: echo "REACT_APP_API_KEY=$REACT_APP_API_KEY" >> .env
         - name: Installing packages
           script: yarn install
-        - name: Building Applications
-          script: yarn build && electron-builder -m -c.extraMetadata.main=build/electron.js
+        - name: Building Applications - React
+          script: yarn build
+        - name: Building Application - Electron
+          script: electron-builder -m -c.extraMetadata.main=build/electron.js
 
       artifacts:
         - out/make/*.dmg
