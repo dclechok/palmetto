@@ -1,12 +1,12 @@
 const electron = require('electron');
 const path = require('path');
 const isDev = require('electron-is-dev');
+require('dotenv').config()
 
 const { app, BrowserWindow, ipcMain } = electron;
 require('@electron/remote/main').initialize();
 
 let mainWindow;
-process.env.NODE_ENV = "production";
 
 function createWindow(){
     mainWindow = new BrowserWindow({
