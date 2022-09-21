@@ -1,0 +1,18 @@
+  macos-build:
+    name: macOS Build
+    instance_type: mac_mini
+    environment:
+      groups:
+        - prod 
+      node: 16.14.0
+
+    scripts:
+      - name: Injecting env vars
+        script: echo "REACT_APP_API_KEY=$REACT_APP_API_KEY" >> .env
+      - name: Installing packages
+        script: yarn install
+      - name: Building Applications
+        script: yarn build && electron-builder -m -c.extraMetadata.main=build/electron.js
+
+    artifacts:
+      - out/make/*.dmg

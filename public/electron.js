@@ -7,7 +7,6 @@ require('@electron/remote/main').initialize();
 
 let mainWindow;
 process.env.NODE_ENV = "production";
-console.log(isDev)
 
 function createWindow(){
     mainWindow = new BrowserWindow({
@@ -26,7 +25,7 @@ function createWindow(){
         ? 'http://localhost:3000'
         : `file://${path.join(__dirname, '../build/index.html')}`);
 }
-
+//when ready create our browser window
 app.on('ready', () => {
     createWindow();
 });
@@ -35,7 +34,7 @@ ipcMain.on('exit-app', () => {
     mainWindow = null; //garbage collection
     app.exit();
 });
-
+//ipc
 ipcMain.on('minimize', () => {
     mainWindow.minimize();
 });
