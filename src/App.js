@@ -64,7 +64,7 @@ function App() {
         <h5>CSV Data Parser/Merger</h5>
       </header>
       <hr />
-      <Inputs mergeLog={mergeLog} setMergeLog={setMergeLog} />
+      <Inputs setMergeLog={setMergeLog} />
 
       <h4>[ Merge Log ]</h4>
       {mergeLog && mergeLog.updatedFile && <div className="download-btn-cont"><button className="download-btn" onClick={handleDownload} id="download-btn"><h6>[ Download Merged Sample File ]</h6></button></div>}

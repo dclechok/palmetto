@@ -8,7 +8,7 @@ import runMerge from './utils/runMerge';
 import validateHeaders from './validation/validateHeaders';
 import validateInputs from './validation/validateInputs';
 
-function Inputs({ mergeLog, setMergeLog }) {
+function Inputs({ setMergeLog }) {
   const [selectedSampleFile, setSelectedSampleFile] = useState();
   const [selectedMasterFile, setSelectedMasterFile] = useState();
   const [parsedFiles, setParsedFiles] = useState();
