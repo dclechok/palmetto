@@ -20,6 +20,7 @@
           script: yarn electron-builder -m --publish always -c.extraMetadata.main=build/electron.js 
 
       publishing:
+        name: github
         scripts: |
           gh release create "v1.0.1"
 
