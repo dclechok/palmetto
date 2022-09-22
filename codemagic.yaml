@@ -22,7 +22,7 @@
       artifacts:
         - out/make/*.dmg
         
-      release:
+      publishing:
         scripts:
           -name: github 
           script: |
