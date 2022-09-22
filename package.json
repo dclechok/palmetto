@@ -75,7 +75,7 @@
       "artifactName": "Palmetto.dmg",
       "icon": "./buildResources/icons/icon.png",
       "target": "dmg",
-      "publish": ["email"]
+      "publish": ["github"]
     }
   }
 }
