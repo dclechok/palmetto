@@ -21,7 +21,7 @@
 
       publishing:
         scripts: |
-          gh release create v1.0.1
+          gh release create "v1.0.1"
 
       artifacts:
         - out/make/*.dmg
