@@ -23,5 +23,5 @@
         - out/make/*.dmg
         
       publishing:
-        scripts:
+        script:
           gh release create "v1.0.1"
