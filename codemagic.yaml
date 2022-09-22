@@ -18,11 +18,9 @@
           script: yarn build
         - name: Building Application - Electron
           script: yarn electron-builder -m --publish always -c.extraMetadata.main=build/electron.js 
-
+        - name: github
+          script: |
+          gh release create "v1.0.1"
       artifacts:
         - out/make/*.dmg
-        
-      publishing:
-        - name: github
-        script: |
-          gh release create "v1.0.1"
+    
