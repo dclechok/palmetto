@@ -19,5 +19,13 @@
         - name: Building Application - Electron
           script: yarn electron-builder -m --publish always -c.extraMetadata.main=build/electron.js 
 
+      publishing:
+        email:
+          recipients:
+            - dclechok@gmail.com
+          notify:
+            success: true # To not receive a notification when a build succeeds
+            failure: false # To not receive a notification when a build fails
+
       artifacts:
         - out/make/*.dmg
