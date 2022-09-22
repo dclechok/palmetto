@@ -54,7 +54,7 @@ function App() {
   
   return (
     <div className="App">
-      <p className="version-date">v{version}T - Last Updated: 09/21/2022</p>
+      <p className="version-date">v{version} - Last Updated: 09/21/2022</p>
       <div className="close-button-container">
       <button className="remove-btn-style" onClick={handleMin} id="min">[▼]</button>&nbsp;
       <button className="remove-btn-style" onClick={handleClose} id="close">[X]</button>
