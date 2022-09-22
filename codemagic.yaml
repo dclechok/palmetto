@@ -24,6 +24,5 @@
         
       publishing:
         scripts:
-          -name: github 
-          script: |
-          gh release create "v1.0.1"
+          -name: github
+          script: gh release create "v1.0.1"
