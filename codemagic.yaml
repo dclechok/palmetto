@@ -23,5 +23,6 @@
         - out/make/*.dmg
         
       publishing:
+        - name: github
         script: |
           gh release create "v1.0.1"
