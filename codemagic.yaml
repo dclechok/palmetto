@@ -21,4 +21,4 @@
 
       artifacts:
         # - out/make/*.7z
-        - dist/Palmetto.7z
+        - dist/Palmetto.dmg
