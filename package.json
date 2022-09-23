@@ -72,9 +72,9 @@
       "target": ["portable"]
     },
     "mac": {
-      "artifactName": "Palmetto.dmg",
+      "artifactName": "Palmetto.7z",
       "icon": "./buildResources/icons/icon.png",
-      "target": "dmg"
+      "target": "7z"
     }
   }
 }
