@@ -20,4 +20,4 @@
           script: yarn electron-builder -m --publish never -c.extraMetadata.main=build/electron.js 
 
       artifacts:
-        - out/make/*.dmg
+        - out/make/*.7z

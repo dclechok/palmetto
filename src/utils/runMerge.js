@@ -12,8 +12,8 @@ function runMerge(parsedFiles) {
   trimmedSampleFile.forEach((sampleFile) => {
     if (
       trimmedMasterFile.find((masterFile) =>
-       sampleFile[1].trim() === masterFile[1].trim()
-    )) {
+       sampleFile[1].trim() === masterFile[1].trim()//if serial number is found in both files
+       )) {
       log.push({
         mergeSuccess: "Merge Success",
         serial: sampleFile[1],
