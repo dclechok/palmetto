@@ -66,7 +66,6 @@ function runMerge(parsedFiles) {
       updatedSampleFile.push([sampleFile]);
     }
   });
-  console.log(updatedSampleFile)
   // return updatedSampleFile which is our updated Sample File with Master File entries merged, and log of what occured to render in UI
 
   return { updatedFile: updatedSampleFile, log: log };
