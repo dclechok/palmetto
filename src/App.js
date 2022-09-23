@@ -77,8 +77,8 @@ function App() {
             {mergeLog.log.map((log, key) => {
               return <p key={key}>
                 <span style={{color: colorCode[log.mergeSuccess]}}>{log.mergeSuccess}&nbsp;</span> 
-                ({log.serial}): {log.mergeSuccess === "Merge Success" ? `Master File (Index: ${log.masterMatchIndex}) --> Sample File (Index: ${log.sampleMatchIndex})` : 
-                `Sample File (Index: ${log.sampleMatchIndex}) --> No matches found in Master!`}
+                 {log.mergeSuccess === "Merge Success" ? `${log.details} - (${log.serial}): Master File (Index: ${log.masterMatchIndex}) --> Sample File (Index: ${log.sampleMatchIndex})` : 
+                `Sample File (Index: ${log.sampleMatchIndex}) --> No matching Serial # or Asset # found in Master!`}
                 </p>
             })}
         </>

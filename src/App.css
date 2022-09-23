@@ -87,10 +87,6 @@ section::-webkit-scrollbar-thumb{
   -webkit-app-region: no-drag; 
 }
 
-label{
-  text-decoration: underline rgb(82, 109, 134);
-}
-
 input{
   background-color: black;
   margin-top: 14px;

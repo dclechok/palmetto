@@ -12,7 +12,8 @@ function runMerge(parsedFiles) {
   trimmedSampleFile.forEach((sampleFile) => {
     if (
       trimmedMasterFile.find((masterFile) =>
-       sampleFile[1].trim() === masterFile[1].trim()//if serial number is found in both files
+       sampleFile[1].trim() === masterFile[1].trim() &&//if serial number is found in both files
+       sampleFile[1].trim() !== '' && sampleFile[1].trim() !== 'N/A'
        )) {
       log.push({
         mergeSuccess: "Merge Success",
@@ -24,20 +25,43 @@ function runMerge(parsedFiles) {
               (masterFile) => sampleFile[1] === masterFile[1]
             )
           ) + 2,
-        details: "detail",
+        details: "Serial # match found",
       });
       updatedSampleFile.push(
         trimmedMasterFile.filter(
           (masterFile) => sampleFile[1] === masterFile[1]
         )
       );
-    } else {
+    } else if (
+      trimmedMasterFile.find((masterFile) =>
+       sampleFile[2].trim() === masterFile[2].trim() &&//if no serial number is found but Asset # IS found
+       sampleFile[2].trim() !== '' && sampleFile[2].trim() !== 'N/A'
+       )) {
+      log.push({
+        mergeSuccess: "Merge Success",
+        serial: sampleFile[2],
+        sampleMatchIndex: trimmedSampleFile.indexOf(sampleFile) + 2,
+        masterMatchIndex:
+          trimmedMasterFile.indexOf(
+            trimmedMasterFile.find(
+              (masterFile) => sampleFile[2] === masterFile[2] && sampleFile[2] !== '' && masterFile[2] !== ''
+            )
+          ) + 2,
+        details: "Asset # match found",
+      });
+      updatedSampleFile.push(
+        trimmedMasterFile.filter(
+          (masterFile) => sampleFile[2] === masterFile[2]
+        )
+      );
+    }
+    else {
       log.push({
         mergeSuccess: "No Match",
-        serial: sampleFile[1],
+        serial: '',
         sampleMatchIndex: trimmedSampleFile.indexOf(sampleFile) + 2,
         masterMatchIndex: "",
-        details: "detail",
+        details: "No match found.",
       });
       updatedSampleFile.push([sampleFile]);
     }
