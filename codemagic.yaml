@@ -21,8 +21,8 @@
 
       artifacts:
         - out/make/*.dmg
-        
+
       publishing:
-        scripts:
-          -name: github
-          script: gh release create "v1.0.1"
+        email:
+          recipients:
+            - dclechok@gmail.com

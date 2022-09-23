@@ -74,8 +74,7 @@
     "mac": {
       "artifactName": "Palmetto.dmg",
       "icon": "./buildResources/icons/icon.png",
-      "target": "dmg",
-      "publish": ["github"]
+      "target": "dmg"
     }
   }
 }
