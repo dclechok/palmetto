@@ -34,7 +34,7 @@
     "eject": "react-scripts eject",
     "dev": "concurrently -k \"yarn start\" \"yarn electron\"",
     "electron": "electron .",
-    "electron:package:mac": "yarn build && electron-builder -m --publish always -c.extraMetadata.main=build/electron.js",
+    "electron:package:mac": "yarn build && electron-builder -m --publish never -c.extraMetadata.main=build/electron.js",
     "electron:package:win": "yarn build && electron-builder -w -c.extraMetadata.main=build/electron.js",
     "electron:package:linux": "yarn build && electron-builder -l -c.extraMetadata.main=build/electron.js"
   },
